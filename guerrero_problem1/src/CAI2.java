@@ -1,7 +1,6 @@
 package guerrero_p3;
 
 import java.security.SecureRandom;
-//import java.util.Random;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,43 +20,7 @@ public class CAI2 {
 		 this.total = 0;
 		  
 	 }
-//	Modify the program from Part 1 so that various comments are displayed for each answer as follows:
-//
-//		Possible responses to a correct answer:
-//
-//		Very good!
-//		Excellent!
-//		Nice work!
-//		Keep up the good work!
-//		Possible responses to an incorrect answer:
-//
-//		No. Please try again.
-//		Wrong. Try once more.
-//		Don’t give up!
-//		No. Keep trying.
-//		Use random-number generation to choose a number 
-	//from 1 to 4 that will be used to select one of the 
-	//four appropriate responses to each correct or incorrect answer. 
-	//Use a switch statement to issue the responses.
-//
-//		 
-//
-//		Requirements
-//		The program shall generate random numbers with a SecureRandom object
-//		The program shall ask the student to solve a multiplication problem
-//		A multiplication problem shall contain two numbers sampled from a uniform random distribution in the range of 0 to 9 (inclusive)
-//		The program shall display a random positive message if the student provides a correct response
-//		The program shall display a random negative message if the student provides an incorrect response
-//		The program shall terminate when a correct response is provided by the student
-//		The program shall continue to ask the student to solve the original multiplication problem until the student provides the correct answer
-//		Create a method called "quiz" that contains the program logic
-//		Create a function called "askQuestion" that prints the problem to the screen
-//		Create a function called "readResponse" that reads the answer from the student
-//		Create a function called "isAsnwerCorrect" that checks to see if the student's answer matches the correct answer to the problem
-//		Create a function called "displayCorrectResponse" that prints out the response when a student enters a correct answer
-//		Create a function called "displayInorrectResponse" that prints out the response when a student enters an incorrect answer
-//		Part 1: Create a main method that runs your program by calling the "quiz" method
-//		 
+	
 	public void quiz() 
 	{
 		CAI2 total = new CAI2();
@@ -74,11 +37,11 @@ public class CAI2 {
 		
 		this.number1    =    1    +    ramdon1.nextInt(9); 
 		    
-        System.out.printf("how much is %d ",    number1);    //    display    generated    value
+        System.out.printf("how much is %d ",    this.number1);    //    display    generated    value
             
         this.number2   =    1    +    ramdon1.nextInt(9); 
 		    
-        System.out.printf("time %d        ", number2   );    //    display    generated    value
+        System.out.printf("time %d        ", this.number2   );    //    display    generated    value
         System.out.println(  ) ;
      }
 	
@@ -95,8 +58,7 @@ public class CAI2 {
 	public void  isAsnwerCorrect()
 	{
 		  this.total = this.number1*this.number2;
-	    //  System.out.println(this.total);
-		  
+	    
 	      while (this.total!=this.userInput)
 		  {
 			displaynoCorrectResponse();// call a method 
@@ -112,7 +74,7 @@ public class CAI2 {
 	public void displayCorrectResponse() 
 	{
 		int rand_int1 = 1+rand.nextInt(4); 
-		//System.out.println(rand_int1);
+		// switch for tandom answer
 		switch(rand_int1)
 		{
 		case 1:
@@ -130,21 +92,15 @@ public class CAI2 {
 			
 		}
 		
-		//System.out.println("Very good");
-		// Very good!
-//			Excellent!
-//			Nice work!
-//			Keep up the good work!
+		
 	}
 	
 	public void displaynoCorrectResponse() 
 	{	
 		
 		
-		
-		//System.out.println("No, please try again");
-		
 		int rand_int2 = 1+rand.nextInt(4); 
+		// switch for random answer
 		switch(rand_int2)
 		{
 		case 1:
@@ -162,17 +118,14 @@ public class CAI2 {
 			
 		}
         
-		System.out.printf("how much is %d ",    this.number1);    
+		System.out.printf("how much is %d ",   this.number1);    
         
 		
 		
 		System.out.printf("time %d        ", this.number2   ); 
 		System.out.println(  ) ;
 		readResponse();
-		//No. Please try again.
-//		Wrong. Try once more.
-//		Don’t give up!
-//		No. Keep trying.
+		
 		
 	}
 
