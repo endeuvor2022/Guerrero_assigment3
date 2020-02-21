@@ -13,15 +13,9 @@ public class CAI1 {
 	
 	public void quiz() 
 	{
-		//CAI1 total = new CAI1();
-		//CAI1 result = new CAI1();
-//		total.askQuestion();
-//		total.readResponse();
-//		total.isAsnwerCorrect();
 		askQuestion();
 		readResponse();
 	    isAsnwerCorrect();
-		
 	}
 	
 	public void askQuestion() 
@@ -51,18 +45,16 @@ public class CAI1 {
 	public void  isAsnwerCorrect()
 	{
 		  total = number1*number2;
-	      System.out.println(total);
-		  
-	      while (total!=inputUser)
+		  while (total!=inputUser)
 		  {
-			displaynoCorrectResponse();// call a method 
+	    	  
+	    	  displaynoCorrectResponse();// call a method 
 			
 		  }
 		     
-	      displayCorrectResponse() ;//call method
+	      displayCorrectResponse() ;
+	      System.out.println("the correct answer is:"+total);//call method
 	
-		
-		
 	}
 	 
 	public void displayCorrectResponse() 

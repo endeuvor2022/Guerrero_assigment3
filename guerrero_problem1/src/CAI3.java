@@ -1,12 +1,11 @@
 package guerrero_p3;
 
 import java.security.SecureRandom;
-
+//import java.util.Random;
 import java.util.Random;
 import java.util.Scanner;
 
 public class CAI3 {
-	// class fields 
 	int total;
 	int userInput;
 	int number1, number2;
@@ -30,7 +29,7 @@ public class CAI3 {
 
 	public void quiz() 
 	{
-		//CAI3 total = new CAI3();
+		
 		
 		// loop for 10 question
 		for (int i =0; i<10; i++)
@@ -46,24 +45,27 @@ public class CAI3 {
 	
 	public void askQuestion() 
 	{
+		int  compare1 =0;
+		int  compare2 =0;
 		 //      generated   random value
 		SecureRandom ramdon1 = new SecureRandom();
 		this.number1    =    1    +    ramdon1.nextInt(9); 
 		this.number2   =    1    +    ramdon1.nextInt(9); 
 		  
-		//if statement avoid generated equal ramdon number
-		if ( this.number1==this.number2)
+		//if statement avoid generated equal random number
+		if ( (compare1!=this.number1)&&(compare2!=this.number2))
 		{
-		    this.number1    =    1    +    ramdon1.nextInt(9); 
-		    this.number2   =    1    +    ramdon1.nextInt(9);
+		    
 		    System.out.printf("how much is %d ",    number1);
 			System.out.printf("time %d        ", number2   );    
 			System.out.println(  ) ;
 	    }
-		/// Print random number
+		/// generate new random numbers
 		else 
 	    {
 //		    display    generated    value
+			this.number1    =    1    +    ramdon1.nextInt(9); 
+		    this.number2   =    1    +    ramdon1.nextInt(9);
 		    System.out.printf("how much is %d ",    number1);
 		    System.out.printf("time %d        ", number2   );    
 		    System.out.println(  ) ;
@@ -84,26 +86,25 @@ public class CAI3 {
 	public void  isAsnwerCorrect()
 	{
 		  this.total = this.number1*this.number2;
-	    //  System.out.println(this.total);
+	    
 		  
 	      if (this.total!=this.userInput)
 		  {
+	    	System.out.println("the correct answer is:"+this.total);
 			displaynoCorrectResponse();// call a method 
 			
 		  }
 		     
 	      else displayCorrectResponse() ;//call method
 	
-		
-		
 	}
 	 
 	public void displayCorrectResponse() 
 	{
-		correctAnwers++; // counter how many good anwers
+		correctAnwers++; // counter how many good answers
 		
 		int rand_int1 = 1+rand.nextInt(4); 
-		//choice ramdon anwers
+		
 		switch(rand_int1)
 		{
 		case 1:
@@ -120,12 +121,14 @@ public class CAI3 {
 			break;
 			
 		}
+		
 	}
 	
 	public void displaynoCorrectResponse() 
 	{	
 		
 		wrongAnwers++; // counter how many bad answers
+		
 		
 		
 		int rand_int2 = 1+rand.nextInt(4); 
@@ -145,8 +148,8 @@ public class CAI3 {
 			break;
 			
 		}
+		
 	}
-	
 	public void displayCompletionMessage()
 	{
 		//percentage calculation
@@ -161,7 +164,7 @@ public class CAI3 {
 		}
 		else
 		{
-			System.out.println("Please ask your teacher for extra help."+incorrectPorcentage);
+			System.out.println("Please ask your teacher for extra help."+(100-incorrectPorcentage));
 		}
 	}
   

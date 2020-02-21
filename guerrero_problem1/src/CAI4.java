@@ -4,12 +4,7 @@ import java.security.SecureRandom;
 //import java.util.Random;
 import java.util.Random;
 import java.util.Scanner;
-//Modify the program from Part 3 to allow the user to enter a difficulty level. 
-//At a difficulty level of 1, the program should use only single-digit numbers 
-//in the problems; at a difficulty level of 2, numbers as large as two digits, and so on.
-//Allow for four levels of difficulty.
 
- 
 public class CAI4 {
 	int total;
 	int userInput;
@@ -37,9 +32,9 @@ public class CAI4 {
 	public void quiz() 
 	{
 		readDifficulty();
-        generateQuestionArgument();	
+		generateQuestionArgument();	
 		askQuestion();
-	    displayCompletionMessage();
+		displayCompletionMessage();
 	}
 	
 	public void readDifficulty()
@@ -52,12 +47,11 @@ public class CAI4 {
 	    System.out.println('\t'+"4)level four");   
 	    this.selectLevel = input.nextInt();
 	    input.nextLine();
-		
 	}
 	
 	public void generateQuestionArgument()
 	{
-        switch(this.selectLevel)
+		switch(this.selectLevel)
 		{
 		case 1:
 			this.number1    =   1   +   rand.nextInt(9); 
@@ -81,10 +75,6 @@ public class CAI4 {
 			
 		}
 		
-		//A difficulty level of 1 shall limit random numbers to the range of 0-9, inclusive
-		//A difficulty level of 2 shall limit random numbers to the range of 0-99, inclusive
-		//A difficulty level of 3 shall limit random numbers to the range of 0-999, inclusive
-		//A difficulty level of 4 shall limit random numbers to the range of 0-9999, inclusive
 		
 	}	
 	
@@ -97,6 +87,7 @@ public class CAI4 {
     	
 	    	for (int i =0; i<10; i++)
 	    	{
+	    		//avoid generate same random numbers
 	    		if(compare1!=this.number1&&compare2!=this.number2)
 	    		{
 	    			System.out.printf("how much is %d ",    this.number1);
@@ -115,11 +106,15 @@ public class CAI4 {
 	    		}
 			
 	    	}
+		
+		
+ 
 	}
 	
 
 	public int readResponse()
 	{
+		
 		System.out.println("please enter your answer ");
 		this.userInput = input.nextInt();
 		input.nextLine();
@@ -133,6 +128,7 @@ public class CAI4 {
 	   
 	      if (this.total!=this.userInput)
 		  {
+	    	System.out.println("the correct answer is:"+this.total);
 			displaynoCorrectResponse();// call a method 
 			
 		  }
@@ -145,8 +141,9 @@ public class CAI4 {
 	public void displayCorrectResponse() 
 	{
 		correctAnwers++; // counter how many good answers
-		int rand_int1 = 1+rand.nextInt(4); 
 		
+		int rand_int1 = 1+rand.nextInt(4); 
+		//System.out.println(rand_int1);
 		switch(rand_int1)
 		{
 		case 1:
@@ -163,12 +160,16 @@ public class CAI4 {
 			break;
 			
 		}
+		
 	}
 	
 	public void displaynoCorrectResponse() 
 	{	
 		
 		wrongAnwers++; // counter how many bad answers
+		
+		//System.out.println("No, please try again");
+		
 		int rand_int2 = 1+rand.nextInt(4); 
 		switch(rand_int2)
 		{
@@ -187,8 +188,10 @@ public class CAI4 {
 			
 		}
 		
+		
+		
+		
 	}
-	
 	public void displayCompletionMessage()
 	{
 		//percentage calculation

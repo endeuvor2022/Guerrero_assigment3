@@ -1,6 +1,7 @@
 package guerrero_p3;
 
 import java.security.SecureRandom;
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,9 +18,12 @@ public class CAI5 {
 	double TOTAL_QUESTION ;
 	Scanner input = new Scanner(System.in);
 	Random rand = new Random(); 
+	private static DecimalFormat df2 = new DecimalFormat("#.##");//format two decimal numbers
+
 	
 	 CAI5()
 	 {
+		 
 		 this.userInput = 0 ;
 		 this.number1 = 0;
 		 this.number2 = 0;
@@ -34,10 +38,9 @@ public class CAI5 {
 		
 		readDifficulty();
 		readProblemType ();
-		generateQuestionArgument();	
+	    generateQuestionArgument();	
 		askQuestion();
 		displayCompletionMessage();
-		
 		
 	}
 	
@@ -65,7 +68,6 @@ public class CAI5 {
 	    this.selectType = input.nextInt();
 	    input.nextLine();
 	}
-	
 	
 	
 	public void generateQuestionArgument()
@@ -99,9 +101,6 @@ public class CAI5 {
 			break;
 			
 		}
-		
-		
-		
 	}	
 	
 	public void askQuestion() 
@@ -113,79 +112,71 @@ public class CAI5 {
 	   // loop generate 10 question
 		for (int i =0; i<10; i++)
 		{
-			
+		
 		// compare if the numbers are different 
 	   if(compare1!=this.number1&&compare2!=this.number2)
 		{	
-	   
+		  
+		   	   
 		   switch(this.selectType)
 		   {
 		   case 1:
-			    System.out.println("addition problem");
-			    System.out.printf("how much is %d ",    this.number1);
-			    System.out.printf("+ %d        ", this.number2   );   
-			    readResponse();
-    			isAsnwerCorrect();
-    			generateQuestionArgument();
-			    break;
+			   mathProccess();
+			   break;
 		
 		   case 2:
 			   	swapNumber();
-				System.out.println("substraction problem");
-				System.out.printf("how much is %d ",    this.number1);
-				System.out.printf("- %d        ", this.number2   );   
-				readResponse();
-    			isAsnwerCorrect();
-    			generateQuestionArgument();
-				break;
+			   	mathProccess();
+			   	break;
 		
 		   case 3:
-				System.out.println("multiplication problem");
-				System.out.printf("how much is %d ",    this.number1);
-				System.out.printf("* %d        ", this.number2   );  
-				readResponse();
-    			isAsnwerCorrect();
-    			generateQuestionArgument();
-				break;
+			   mathProccess();
+			   break;
 		
 		   case 4:
 			   	swapNumber();
-				System.out.println("division problem");
-				System.out.printf("how much is %d ",    this.number1);
-				System.out.printf("/ %d        ", this.number2   ); 
-				readResponse();
-    			isAsnwerCorrect();
-    			generateQuestionArgument();
+			   	mathProccess();
 				break;
-				
-		   case 5:
-			   selectionFive();
-			   
-			   break;
+		   }	
 			
-		   }
 		}
+		
 	   // generate different random numbers 
 	   else 
 	   {
 		   generateQuestionArgument();
 	   }
+	   
+	   
+		   
+	   
+		}
+		if (this.selectType==5)
+		{
+			for (int j =0; j<10; j++)
+			{
+			
+				int rand_int3 = 1+rand.nextInt(4); 
+				// passing the random number to this.selectType 
+				this.selectType = rand_int3;
+				
+				mathProccess();
+			}  
+		
+		  }
 		   
 	   }
 	   
-	}
+	//method process help to obtain the random set problem
+	public void mathProccess()
+	{ 
+	  int  compare1 =0;
+	  int  compare2 =0;
 	
-	// method generate random question for selection number 5 
-	public void selectionFive()
-	{
-		// loop 10 times 
-		for (int i =0; i<10;i++)
-		{
-			// generate random numbers
-		   int rand_int3 = 1+rand.nextInt(4); 
-		   // passing the random number to this.selectType 
-		   this.selectType = rand_int3;
-		  // switch statement for every case
+		if(compare1!=this.number1&&compare2!=this.number2)
+		{	
+		  
+		   	   
 		   switch(this.selectType)
 		   {
 		   case 1:
@@ -193,8 +184,8 @@ public class CAI5 {
 			    System.out.printf("how much is %d ",    this.number1);
 			    System.out.printf("+ %d        ", this.number2   );   
 			    readResponse();
-	   			isAsnwerCorrect();
-	   			generateQuestionArgument();
+    			isAsnwerCorrect();
+    			generateQuestionArgument();
 			    break;
 		
 		   case 2:
@@ -203,8 +194,8 @@ public class CAI5 {
 				System.out.printf("how much is %d ",    this.number1);
 				System.out.printf("- %d        ", this.number2   );   
 				readResponse();
-	   			isAsnwerCorrect();
-	   			generateQuestionArgument();
+    			isAsnwerCorrect();
+    			generateQuestionArgument();
 				break;
 		
 		   case 3:
@@ -212,8 +203,8 @@ public class CAI5 {
 				System.out.printf("how much is %d ",    this.number1);
 				System.out.printf("* %d        ", this.number2   );  
 				readResponse();
-	   			isAsnwerCorrect();
-	   			generateQuestionArgument();
+    			isAsnwerCorrect();
+    			generateQuestionArgument();
 				break;
 		
 		   case 4:
@@ -221,14 +212,22 @@ public class CAI5 {
 				System.out.println("division problem");
 				System.out.printf("how much is %d ",    this.number1);
 				System.out.printf("/ %d        ", this.number2   ); 
-			    readResponse();
-	   			isAsnwerCorrect();
-	   			generateQuestionArgument();
+				readResponse();
+    			isAsnwerCorrect();
+    			generateQuestionArgument();
 				break;
+		   }	
 			
-		   }  
 		}
-	  }
+		
+	   // generate different random numbers 
+	   else 
+	   {
+		   generateQuestionArgument();
+	   }
+	   
+	   
+	}
 
 	
 
@@ -250,6 +249,7 @@ public class CAI5 {
 			this.total = this.number1+this.number2;
 				if (this.total!=this.userInput)
 				{
+					System.out.println("the correct answer is:"+this.total);
 					displaynoCorrectResponse();// call a method 
 				}
 				else displayCorrectResponse() ;//call method  
@@ -259,24 +259,27 @@ public class CAI5 {
 			this.total = this.number1-this.number2;
 				if (this.total!=this.userInput)
 				{
+					System.out.println("the correct answer is:"+this.total);
 					displaynoCorrectResponse();// call a method 
 				
 				}
 			    else displayCorrectResponse() ;//call method  
-				break; 
+			break; 
 				
 		case 3:
 			this.total = this.number1*this.number2;
 				if (this.total!=this.userInput)
 				{
+					System.out.println("the correct answer is:"+this.total);
 					displaynoCorrectResponse();// call a method 
 				}
 			    else displayCorrectResponse() ;//call method  
-				break;
+			break;
 		
 		case 4:
 			swapNumber();
 			division() ;
+						
 			break;
 		
 		}
@@ -367,29 +370,32 @@ public class CAI5 {
 		}
 	  }
 	
-	//  method the swap the lower number position with the bigger number
+	//  method the swap the lower number position to the right  with the bigger number to the left
 	public void swapNumber() 
 	{
 		int swap =0;
-			if (this.number1<this.number2)
-			{	
+		
+		if (this.number1<this.number2)
+		{
 			swap=this.number1;
 			this.number1=this.number2;
 			this.number2 = swap;
-			}
+		}
 	}
-	
+	// division method
+	//that allow to print only two decimal places
 	public void division() 
 	{
-		swapNumber();
-		 this.total =  (double) this.number1/this.number2;
-		System.out.println(this.total);
-		 if ( this.total!=this.userInput)
-		{
-			displaynoCorrectResponse();// call a method 
+		swapNumber();//swap numbers
+		this.total =  (double) this.number1/this.number2;
 		
-		}
-	    else displayCorrectResponse() ;//call method 
+		 if ( this.total!=this.userInput)
+		 {
+			 System.out.println("the correct answer is:"+df2.format(this.total)); 
+			 displaynoCorrectResponse();// call a method 
+		
+		 }
+		 else displayCorrectResponse() ;//call method 
 		
 	}
 	

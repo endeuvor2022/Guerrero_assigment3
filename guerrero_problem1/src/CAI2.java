@@ -1,6 +1,7 @@
 package guerrero_p3;
 
 import java.security.SecureRandom;
+//import java.util.Random;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class CAI2 {
 		 this.total = 0;
 		  
 	 }
-	
+
 	public void quiz() 
 	{
 		CAI2 total = new CAI2();
@@ -58,7 +59,8 @@ public class CAI2 {
 	public void  isAsnwerCorrect()
 	{
 		  this.total = this.number1*this.number2;
-	    
+	    //  System.out.println(this.total);
+		  
 	      while (this.total!=this.userInput)
 		  {
 			displaynoCorrectResponse();// call a method 
@@ -74,7 +76,7 @@ public class CAI2 {
 	public void displayCorrectResponse() 
 	{
 		int rand_int1 = 1+rand.nextInt(4); 
-		// switch for tandom answer
+		//System.out.println(rand_int1);
 		switch(rand_int1)
 		{
 		case 1:
@@ -99,8 +101,9 @@ public class CAI2 {
 	{	
 		
 		
+		
+		
 		int rand_int2 = 1+rand.nextInt(4); 
-		// switch for random answer
 		switch(rand_int2)
 		{
 		case 1:
@@ -118,7 +121,7 @@ public class CAI2 {
 			
 		}
         
-		System.out.printf("how much is %d ",   this.number1);    
+		System.out.printf("how much is %d ",    this.number1);    
         
 		
 		
