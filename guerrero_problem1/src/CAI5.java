@@ -114,38 +114,38 @@ public class CAI5 {
 		{
 		
 		// compare if the numbers are different 
-	   if(compare1!=this.number1&&compare2!=this.number2)
-		{	
+	   		if(compare1!=this.number1&&compare2!=this.number2)
+			{	
 		  
 		   	   
-		   switch(this.selectType)
-		   {
-		   case 1:
-			   mathProccess();
-			   break;
+		   		switch(this.selectType)
+		   		{
+		  			 case 1:
+			   			mathProccess();
+			  	 		break;
 		
-		   case 2:
-			   	swapNumber();
-			   	mathProccess();
-			   	break;
+		   			case 2:
+			   			swapNumber();
+			   			mathProccess();
+			   			break;
 		
-		   case 3:
-			   mathProccess();
-			   break;
+		   			case 3:
+			   			mathProccess();
+			   			break;
 		
-		   case 4:
-			   	swapNumber();
-			   	mathProccess();
-				break;
-		   }	
+		   			case 4:
+			   			swapNumber();
+			   			mathProccess();
+						break;
+		   		}	
 			
-		}
+			}
 		
-	   // generate different random numbers 
-	   else 
-	   {
-		   generateQuestionArgument();
-	   }
+	   			// generate different random numbers 
+	   		else 
+	   			{
+		   			generateQuestionArgument();
+	   			}
 	   
 	   
 		   
@@ -159,7 +159,6 @@ public class CAI5 {
 				int rand_int3 = 1+rand.nextInt(4); 
 				// passing the random number to this.selectType 
 				this.selectType = rand_int3;
-				
 				mathProccess();
 			}  
 		
@@ -279,7 +278,6 @@ public class CAI5 {
 		case 4:
 			swapNumber();
 			division() ;
-						
 			break;
 		
 		}
